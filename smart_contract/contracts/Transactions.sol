@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.18;
 
-contract Transcations
+contract Transactions
 {
 	//	just counter
 	uint256 transactionCount;
@@ -26,7 +26,7 @@ contract Transcations
 	}
 
 	//	stores all transactions of TransferStruct type
-	TransferStruct[] transcations;
+	TransferStruct[] transactions;
 
 
 	/**
@@ -40,7 +40,7 @@ contract Transcations
 	) public
 	{
 		transactionCount += 1;
-		transcations.push(
+		transactions.push(
 			TransferStruct (msg.sender, receiver, amount, message, block.timestamp, keyword)
 		);
 		emit Transfer(msg.sender, receiver, amount, message, block.timestamp, keyword);
@@ -50,7 +50,7 @@ contract Transcations
 
 	function getAllTransactions () public view returns (TransferStruct[] memory)
 	{
-		return transcations;
+		return transactions;
 	}
 
 
